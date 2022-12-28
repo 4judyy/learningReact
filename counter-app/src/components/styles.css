@@ -1,0 +1,39 @@
+* {
+    font-family: 'Arial';
+    color: #3f3d56;
+    font-weight: medium;
+    font-size: 14px;
+}
+
+.btn {
+    background: #3F3D56;
+    border-radius: 16px;
+    color: white;
+    font-style: normal;
+    line-height: 18px;
+    text-align: center;
+    font-weight: bold;
+    width: 308px;
+    height: 46px;
+    margin: 2px;
+}
+
+.badge-warning {
+    background: #FF9677;
+    font-weight: bold;
+    color: white;
+    width: 300;
+    height: 300;
+    border-radius: 16px;
+    padding: 2%;
+}
+
+.badge-primary {
+    background: blue;
+    font-weight: bold;
+    color: white;
+    width: 300;
+    height: 300;
+    border-radius: 16px;
+    padding: 2%;
+}
