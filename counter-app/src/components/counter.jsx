@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import './styles.css';
 
 class Counter extends Component {
-    state = {
-        count: 0,
-        tags: []
-    };
 
     // constructor() {
     //     super();
@@ -17,36 +12,27 @@ class Counter extends Component {
         fontWeight: 'bold',
     };
 
-    renderTags() {
-        if (this.state.tags.length === 0) return <p>There are no tags!</p>;
-
-        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
-    }
-
-    handleIncrement = () => {
-        this.setState({ count: this.state.count + 1 });
-    }
-
     render() {
+        console.log(this.props.id);
         return (
-            <div>
-                {this.state.tags.length === 0 && "Please add a new tag!"}
-                {this.renderTags()}
-                <span className={this.getBadgeClasses()}>{this.formalCount()}</span>
-                <button onClick={this.handleIncrement} className="btn">Increment</button>
 
+            <div>
+                {this.props.children}
+                <span className={this.getBadgeClasses()}>{this.formalCount()}</span>
+                <button onClick={() => this.props.onIncrement(this.props.counter)} className="btn">Increment</button>
+                <button className='button' onClick={() => this.props.onDelete(this.props.counter.id)}>Delete</button>
             </div>
         );
     }
 
     getBadgeClasses() {
         let classes = "badge-";
-        classes += this.state.count === 0 ? "warning" : "primary";
+        classes += this.props.counter.value === 0 ? "warning" : "primary";
         return classes;
     }
 
     formalCount() {
-        return (this.state.count === 0 ? 'Zero' : this.state.count);
+        return (this.props.counter.value === 0 ? 'Zero' : this.props.counter.value);
     }
 
 }
