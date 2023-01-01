@@ -16,11 +16,18 @@ class Counter extends Component {
         console.log(this.props.id);
         return (
 
-            <div>
-                {this.props.children}
-                <span className={this.getBadgeClasses()}>{this.formalCount()}</span>
-                <button onClick={() => this.props.onIncrement(this.props.counter)} className="btn">Increment</button>
-                <button className='button' onClick={() => this.props.onDelete(this.props.counter.id)}>Delete</button>
+            <div className="row">
+                <div className="col-1">
+                    <span className={this.getBadgeClasses()}>{this.formalCount()}</span>
+                </div>
+                <div className="col">
+                    <button onClick={() => this.props.onIncrement(this.props.counter)} className="btn">+</button>
+                    <button
+                        onClick={() => this.props.onDecrease(this.props.counter)}
+                        className="btn"
+                        disabled={this.props.counter.value === 0 ? 'disabled' : ''}>-</button>
+                    <button className='button' onClick={() => this.props.onDelete(this.props.counter.id)}>x</button>
+                </div>
             </div>
         );
     }
